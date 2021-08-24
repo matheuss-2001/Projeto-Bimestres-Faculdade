@@ -1,0 +1,72 @@
+
+  Diferentes tipos de Softwares
+
+ Software de sistema -- programas para atender outros programas
+ Software de aplicação -- programas sob medidas que solucionam uma nescessidade especifica de negocio
+ Software de engenharia -- algoritimos Number crunching (númerico pesado)
+ Software embutido -- produto/sistema para implementar e controlar funcoes para usuario final
+ Software linhas de produto -- atender clientes diferentes (linnha de procução , galpa , estoque)
+ Software Web --  webapps , um conceito de cliente/servidor , o recurso requisitado esta la .
+ Software de inteligencia artificial -- aloritimos nao numericos  , para resolver problemas complexos  , sem ser análise direta .
+ Software  Aberto -- Desenvolvido em comunidade , (indentificar qual maior foco de covid ; por exemplo) .
+
+Processo de desenvolvimento de software
+
+
+-- Análise;
+-- Projeto;
+-- Implementação;
+-- Testes;
+--Implantação;
+
+19/03/21
+
+atributos sao caracteristica do objeto
+
+
+classe - veiculo
+objetos - carro , caminhao , moto
+atributos - chassi , cor , modelo , ano , categoria , eixo ...
+
+Niveis de acessibilidade de um atributo ou metodo
+  - Pública () Objetos de quaisquer classes podem acessar o atributo
+  - Privada (-) Apenas a classe possuidora do metodo ou do atributo pode ter acesso.
+  - Protegida (#) Apenas a classe e as subclasses possuidoras podem ter acesso .
+
+     Herança Permite a reutilização de atributps e de metodos .
+
+     Encapsulamento - Separar o programa em partes, tornando o mais isolado possivel.
+
+
+
+ 
+     Classe base - classe possui caracteristicas que podem ser heradas por outra classe
+     
+     Classe Derivada - classe que herda as caracteristicas da classe base
+
+Diagramas estruturais 
+  - pacotes
+  - classes ()
+  - objetos
+  -estrutura composta
+  - componentes
+  - implamentação 
+
+Diagrama comportamentais 
+  -  caso de uso 
+  -atividadaes 
+  -maquina de estado
+  -interação
+  -comunicaçao
+  -sequencia
+  -tempo interatividade
+
+
+26/03/21
+
+Diagrama de  caso de uso
+ - tecnica de modelagem utilizada para descever o que sistema devera fazer/
+ - representa o comportamento esperado de um sistema 
+- descereve formaliza opera;oes e funcionalidades , considera um dos tipos de requisitos.
+- parte do processo de especifica;ao de requisitos no qual a comunicacao interativa entre o cliente  
+  3 elementos - ator, relacionamento e caso de uso 
