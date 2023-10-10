@@ -1,10 +1,7 @@
 import React from "react";
-import UserSotre from "./stores/UserStore";
-
-import { observer } from "mobx-react";
-
+import UserStore from "./stores/UserStore";
+import {observer} from "mobx-react";
 import LoginForm from "./LoginForm";
-import InputField from "./InputField";
 import SubmitButtonm from "./SubmitButton";
 
 import './App.css';
@@ -20,7 +17,7 @@ class App extends React.Component {
         method: "post",
         headers: {
           "Accept": "application/json",
-          "Content-type": "application/json"
+          "Content-Type": "application/json"
         }
 
       });
@@ -29,14 +26,14 @@ class App extends React.Component {
 
       if (result && result.success) {
 
-        UserSotre.loading = false;
-        UserSotre.isLoggedIn = true;
-        UserSotre.username = result.username;
+        UserStore.loading = false;
+        UserStore.isLoggedIn = true;
+        UserStore.username = result.username;
 
 
       } else {
-        UserSotre.loading = false;
-        UserSotre.isLoggedIn = false;
+        UserStore.loading = false;
+        UserStore.isLoggedIn = false;
 
 
       }
@@ -44,8 +41,8 @@ class App extends React.Component {
     }
     catch (e) {
 
-      UserSotre.loading = false;
-      UserSotre.isLoggedIn = false;
+      UserStore.loading = false;
+      UserStore.isLoggedIn = false;
     }
 
 
@@ -61,7 +58,7 @@ class App extends React.Component {
         method: "post",
         headers: {
           "Accept": "application/json",
-          "Content-type": "application/json"
+          "Content-Type": "application/json"
         }
 
       });
@@ -70,9 +67,9 @@ class App extends React.Component {
 
       if (result && result.success) {
 
-        UserSotre.loading = false;
-        UserSotre.isLoggedIn = false;
-        UserSotre.username = "";
+        UserStore.loading = false;
+        UserStore.isLoggedIn = false;
+        UserStore.username = "";
 
 
       }
@@ -90,7 +87,7 @@ class App extends React.Component {
 
   render() {
 
-    if (UserSotre.loading) {
+    if (UserStore.loading) {
 
       return (
         <div className="app">
@@ -108,7 +105,7 @@ class App extends React.Component {
 
     } else {
 
-      if (UserSotre.isLoggedIn) {
+      if (UserStore.isLoggedIn) {
 
         return (
           <div className="app">
@@ -116,15 +113,21 @@ class App extends React.Component {
 
             <div className="container"></div>
 
-            Seja bem-vindo {UserSotre.username}
+            Seja bem-vindo {UserStore.username}
 
             <SubmitButtonm
+
+
+
 
               text={"Logout"}
               disable={false}
               onClick={() => this.doLogout()}
 
-            />
+            ></SubmitButtonm>
+
+
+
 
 
           </div>
