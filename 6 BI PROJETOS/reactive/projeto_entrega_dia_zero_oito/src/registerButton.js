@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class SubmitButton extends React.Component {
+class RegisterButton extends React.Component {
 
 
     render() {
@@ -9,7 +9,7 @@ class SubmitButton extends React.Component {
         return (
             <div className="submitButton">
                 <button
-                    className="btnLogin"
+                    className="registerButtonCss"
                     disabled={this.props.disabled}
                     onClick={() => this.props.onClick()}
 
@@ -24,4 +24,4 @@ class SubmitButton extends React.Component {
 
 }
 
-export default SubmitButton;
+export default RegisterButton;

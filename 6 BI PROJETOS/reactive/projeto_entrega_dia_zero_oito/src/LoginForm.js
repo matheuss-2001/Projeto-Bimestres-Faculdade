@@ -1,7 +1,8 @@
 import React from "react";
-import InputField from "./InputField";
-import UserStore from "./stores/UserStore";
-import SubmitButton from "./SubmitButton";
+import InputField from "./inputField";
+import UserStore from "./stores/userStore";
+import SubmitButton from "./submitButton";
+import RegisterButton from "./registerButton"
 
 
 class LoginForm extends React.Component {
@@ -126,6 +127,13 @@ class LoginForm extends React.Component {
 
         />
 
+        <RegisterButton
+          text="Registrar"
+          disabled={this.state.buttonDisabled}
+          onClick={() => this.doLogin()}
+
+
+        />
 
       </div>
     );

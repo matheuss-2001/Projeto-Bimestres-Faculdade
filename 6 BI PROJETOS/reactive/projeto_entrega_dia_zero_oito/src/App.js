@@ -1,8 +1,8 @@
 import React from "react";
-import UserStore from "./stores/UserStore";
-import {observer} from "mobx-react";
-import LoginForm from "./LoginForm";
-import SubmitButtonm from "./SubmitButton";
+import UserStore from "./stores/userStore";
+import { observer } from "mobx-react";
+import LoginForm from "./loginForm";
+import SubmitButton from "./submitButton";
 
 import './App.css';
 
@@ -115,7 +115,7 @@ class App extends React.Component {
 
             Seja bem-vindo {UserStore.username}
 
-            <SubmitButtonm
+            <SubmitButton
 
 
 
@@ -124,7 +124,7 @@ class App extends React.Component {
               disable={false}
               onClick={() => this.doLogout()}
 
-            ></SubmitButtonm>
+            ></SubmitButton>
 
 
 
