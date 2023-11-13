@@ -4,6 +4,27 @@ import SubmitButton from "./submitButton";
 
 
 
+//require("dotenv").config();
+
+
+/*
+
+const express = require("express");
+const app = express();
+app.use(express.json());
+const { OpenAI } = require("openai");
+const openai = new OpenAI(OPENAI_API_KEY);
+*/
+
+
+
+
+    
+
+
+
+
+
 
 class FormularioPetMatch extends React.Component {
 
@@ -12,7 +33,7 @@ class FormularioPetMatch extends React.Component {
     this.state = {
 
       name: "",
-      dataNascimento: "",
+      idade: "",
       rotina: "",
       tipoPet: "",
       cidade: "",
@@ -53,59 +74,84 @@ class FormularioPetMatch extends React.Component {
 
   async findMatch() {
 
-    console.log(this.state.name)
-    console.log(this.state.dataNascimento)
-    console.log(this.state.cidade)
-    console.log(this.state.rotina)
-    console.log(this.state.tipoPet)
+
 
     if (this.state.name !== "" &&
-      this.state.dataNascimento !== "" &&
+      this.state.idade !== "" &&
       this.state.cidade !== "" &&
       this.state.rotina !== "" &&
 
       (this.state.tipoPet !== "" && this.state.tipoPet !== "selecione")) {
 
 
-      this.question = "cite as racas de ${this.state.tipoPet} que mais combinariam com as especificacoes do dono idade 20 , rotina saio de final de semana, moro em sao paulo";
+      this.question = `cite as raças de ${this.state.tipoPet} que mais combinariam com as especificacoes seguintes :  dono idade ${this.state.idade} , rotina ${this.state.rotina}, moro em ${this.state.cidade}`;
 
 
       try {
+/*
+        app.post("/pergunte-ao-chatgpt", async (req, res) => {
+          const { prompt } = this.state.question;
 
-        let res = await fetch("/login", {
+          const model = "gpt-3.5-turbo";
+          const role = "user";
+          const max_tokens = 2000;
 
-          method: "post",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
+          const completion = await openai.chat.completions.create({
+            messages: [{ role: role, content: prompt }],
+            model: model,
+            max_tokens: max_tokens
+          });
 
-
-          body: JSON.stringify({
-
-            username: this.state.username,
-            password: this.state.password
-
-
-          })
-
+          res.json({ completion: completion.choices[0].message.content })
         });
 
-
-        let result = await res.json();
-
-        if (result && result.success) {
-
-          //UserStore.isLoggedIn = true;
-          //UserStore.username = result.username;
-
-        } else if (result && result.success === false) {
-
-          this.resetForm();
-          alert(result.msg);
-        }
+        const PORT = 4000;
+        app.listen(PORT, () => console.log(`Em execução na porta ${PORT}`));
 
 
+*/
+
+
+
+        /*
+                let res = await fetch("/pergunte-ao-chatgpt", {
+        
+                  method: "post",
+                  headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                  },
+        
+        
+                  body: JSON.stringify({
+        
+                    username: this.state.username,
+               
+        
+        
+                  })
+        
+                });
+        
+        
+                let result = await res.json();
+        
+                if (result && result.success) {
+        
+                  //UserStore.isLoggedIn = true;
+                  //UserStore.username = result.username;
+        
+                } else if (result && result.success === false) {
+        
+                  this.resetForm();
+                  alert(result.msg);
+                }
+        
+        
+        
+                */
+
+      
 
       }
       catch (e) {
@@ -164,9 +210,9 @@ class FormularioPetMatch extends React.Component {
         <InputField
 
           type="text"//"date"
-          placeholder="Data de Nascimento"
-          value={this.state.dataNascimento ? this.state.dataNascimento : ""}
-          onChange={(val) => this.setInputValue("dataNascimento", val)}
+          placeholder="Idade"
+          value={this.state.idade ? this.state.idade : ""}
+          onChange={(val) => this.setInputValue("idade", val)}
 
         />
 
@@ -232,7 +278,7 @@ class FormularioPetMatch extends React.Component {
 
           text="Buscar Match"
           disabled={this.state.buttonDisabled}
-          onClick={() => this.findMatch()}
+          onClick={()=>this.findMatch()}
 
 
         />
