@@ -1,4 +1,9 @@
 # Getting Started with Create React App
+<img width="1111" alt="Screenshot 2023-11-30 at 6 04 28 PM" src="https://github.com/matheuss-2001/Projeto-Bimestres-Faculdade/assets/78312764/12c277c0-ec1c-482b-ab01-84998cd8e879">
+<img width="812" alt="Screenshot 2023-11-30 at 6 13 47 PM" src="https://github.com/matheuss-2001/Projeto-Bimestres-Faculdade/assets/78312764/09bc20a8-2209-4ea6-a368-211fce529aa1">
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
