@@ -4,22 +4,13 @@ import SubmitButton from "./submitButton";
 
 
 
-//require("dotenv").config();
-
-
-/*
-
-const express = require("express");
-const app = express();
-app.use(express.json());
-const { OpenAI } = require("openai");
-const openai = new OpenAI(OPENAI_API_KEY);
-*/
+const API_KEY = "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";
 
 
 
 
-    
+
+
 
 
 
@@ -84,77 +75,62 @@ class FormularioPetMatch extends React.Component {
       (this.state.tipoPet !== "" && this.state.tipoPet !== "selecione")) {
 
 
-      this.question = `cite as raças de ${this.state.tipoPet} que mais combinariam com as especificacoes seguintes :  dono idade ${this.state.idade} , rotina ${this.state.rotina}, moro em ${this.state.cidade}`;
+      this.question = `cite as raças de ${this.state.tipoPet} que mais combinariam com as especificacoes seguintes :  dono idade ${this.state.idade} , rotina ${this.state.rotina}, reside em ${this.state.cidade}`;
+
+
+
 
 
       try {
-/*
-        app.post("/pergunte-ao-chatgpt", async (req, res) => {
-          const { prompt } = this.state.question;
-
-          const model = "gpt-3.5-turbo";
-          const role = "user";
-          const max_tokens = 2000;
-
-          const completion = await openai.chat.completions.create({
-            messages: [{ role: role, content: prompt }],
-            model: model,
-            max_tokens: max_tokens
-          });
-
-          res.json({ completion: completion.choices[0].message.content })
-        });
-
-        const PORT = 4000;
-        app.listen(PORT, () => console.log(`Em execução na porta ${PORT}`));
-
-
-*/
 
 
 
-        /*
-                let res = await fetch("/pergunte-ao-chatgpt", {
-        
-                  method: "post",
-                  headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                  },
-        
-        
-                  body: JSON.stringify({
-        
-                    username: this.state.username,
-               
-        
-        
-                  })
-        
-                });
-        
-        
-                let result = await res.json();
-        
-                if (result && result.success) {
-        
-                  //UserStore.isLoggedIn = true;
-                  //UserStore.username = result.username;
-        
-                } else if (result && result.success === false) {
-        
-                  this.resetForm();
-                  alert(result.msg);
-                }
-        
-        
-        
-                */
 
-      
 
-      }
-      catch (e) {
+        const apiRequestBody = {
+          "model": "gpt-3.5-turbo",
+          "messages": [
+            { "role": "user", "content": this.question }
+
+          ]
+        }
+
+        console.log(apiRequestBody);
+
+        await fetch("https://api.openai.com/v1/chat/completions", {
+
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer " + API_KEY,
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(apiRequestBody)
+        }).then((data) => {
+          return data.json();
+        }).then((data) => {
+          console.log(data["choices"][0]["message"]["content"]);
+          alert(data["choices"][0]["message"]["content"]);
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      } catch (e) {
 
         alert("Algo deu errado durante a busca");
 
@@ -276,9 +252,10 @@ class FormularioPetMatch extends React.Component {
 
         <SubmitButton
 
+
           text="Buscar Match"
           disabled={this.state.buttonDisabled}
-          onClick={()=>this.findMatch()}
+          onClick={() => this.findMatch()}
 
 
         />
